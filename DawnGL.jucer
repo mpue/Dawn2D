@@ -2,6 +2,9 @@
 
 <JUCERPROJECT id="HQ5Kz3" name="DawnGL" projectType="guiapp" jucerVersion="5.3.2">
   <MAINGROUP id="zyBtIK" name="DawnGL">
+    <GROUP id="{FA2422CC-9366-62DD-F53F-A09B8DB0F699}" name="textures">
+      <FILE id="Q7yS91" name="test.png" compile="0" resource="1" file="textures/test.png"/>
+    </GROUP>
     <GROUP id="{78F322F7-56D6-3496-B062-22947E90330F}" name="Source">
       <FILE id="jI713n" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="Yvkzul" name="MainComponent.cpp" compile="1" resource="0"
