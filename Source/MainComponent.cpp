@@ -14,6 +14,8 @@ MainComponent::MainComponent()
     // Make sure you set the size of the component after
     // you add any child components.
     setSize (800, 600);
+    addKeyListener(this);
+    setWantsKeyboardFocus(true);
 }
 
 MainComponent::~MainComponent()
@@ -54,14 +56,31 @@ void MainComponent::render()
     glColor3f(1, 1, 1);
     glEnable(GL_TEXTURE_2D);
     texture.bind();
-    // Draw a textured quad
+
     glBegin(GL_QUADS);
-    glTexCoord2f(0, 0); glVertex3f(0, 0, 0);
-    glTexCoord2f(0, 1); glVertex3f(0, 100, 0);
-    glTexCoord2f(1, 1); glVertex3f(100, 100, 0);
-    glTexCoord2f(1, 0); glVertex3f(100, 0, 0);
+    glTexCoord2f(0, 0); glVertex3f(0 + player_x, 0 + player_y, 0);
+    glTexCoord2f(0, 1); glVertex3f(0 + player_x, 100 + player_y, 0);
+    glTexCoord2f(1, 1); glVertex3f(100 + player_x, 100 + player_y, 0);
+    glTexCoord2f(1, 0); glVertex3f(100 + player_x, 0 + player_y, 0);
     glEnd();
     
+    if (movingDown) {
+        if (player_y > 0)
+            player_y -= speed;
+    }
+    else if (movingUp) {
+        if (player_y < getHeight() - 100)
+            player_y += speed;
+    }
+    
+    if (movingLeft) {
+        if (player_x > 0)
+            player_x -= speed;
+    }
+    else if(movingRight) {
+        if (player_x < getWidth() - 100)
+            player_x += speed;
+    }
     
     // Add your rendering code here...
 }
@@ -78,4 +97,53 @@ void MainComponent::resized()
     // This is called when the MainComponent is resized.
     // If you add any child components, this is where you should
     // update their positions.
+}
+
+bool MainComponent::keyPressed(const juce::KeyPress &key, juce::Component *originatingComponent) {
+    
+    Logger::writeToLog("Key pressed");
+    
+    if (key.getKeyCode() == KeyPress::leftKey) {
+        
+    }
+    if (key.getKeyCode() == KeyPress::rightKey) {
+
+    }
+    if (key.getKeyCode() == KeyPress::upKey) {
+
+    }
+    if (key.getKeyCode() == KeyPress::downKey) {
+
+    }
+    
+    return true;
+}
+
+bool MainComponent::keyStateChanged(bool isKeyDown, juce::Component *originatingComponent) {
+    if(KeyPress::isKeyCurrentlyDown(KeyPress::leftKey)) {
+        movingLeft = true;
+    }
+    else {
+        movingLeft = false;
+    }
+    if(KeyPress::isKeyCurrentlyDown(KeyPress::rightKey)) {
+        movingRight = true;
+    }
+    else {
+        movingRight = false;
+    }
+    if(KeyPress::isKeyCurrentlyDown(KeyPress::upKey)) {
+        movingUp = true;
+    }
+    else {
+        movingUp = false;
+    }
+    if(KeyPress::isKeyCurrentlyDown(KeyPress::downKey)) {
+        movingDown = true;
+    }
+    else {
+        movingDown = false;
+    }
+    
+    
 }
