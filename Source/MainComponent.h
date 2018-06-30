@@ -37,9 +37,13 @@ private:
     //==============================================================================
     // Your private member variables go here...
     OpenGLTexture texture;
-
+    OpenGLTexture background;
+    
     float player_x = 0;
     float player_y = 0;
+    
+    float offset_x = 0;
+    float offset_y = -1000;
     
     float speed = 5.0f;
     

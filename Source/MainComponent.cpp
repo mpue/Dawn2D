@@ -34,6 +34,12 @@ void MainComponent::initialise()
     Image im = ImageCache::getFromMemory(BinaryData::test_png, BinaryData::test_pngSize);
 
     texture.loadImage (im);
+    
+    background.bind();
+    
+    Image bg = ImageCache::getFromMemory(BinaryData::dawn_beta_part13_jpg, BinaryData::dawn_beta_part13_jpgSize);
+    
+    background.loadImage(bg);
 }
 
 void MainComponent::shutdown()
@@ -41,6 +47,9 @@ void MainComponent::shutdown()
     // Free any GL objects created for rendering here.
     texture.release();
     texture.unbind();
+    
+    background.release();
+    background.unbind();
     
 }
 
@@ -55,8 +64,19 @@ void MainComponent::render()
     glDisable(GL_LIGHTING);
     glColor3f(1, 1, 1);
     glEnable(GL_TEXTURE_2D);
-    texture.bind();
 
+    background.bind();
+
+    glBegin(GL_QUADS);
+    glTexCoord2f(0, 0); glVertex3f(0 + offset_x, 0 + offset_y, 0);
+    glTexCoord2f(0, 1); glVertex3f(0 + offset_x, background.getHeight() + offset_y, 0);
+    glTexCoord2f(1, 1); glVertex3f(background.getWidth() + offset_x, background.getHeight() + offset_y, 0);
+    glTexCoord2f(1, 0); glVertex3f(background.getWidth() + offset_x, 0 + offset_y, 0);
+    glEnd();
+
+
+    // player
+    texture.bind();
     glBegin(GL_QUADS);
     glTexCoord2f(0, 0); glVertex3f(0 + player_x, 0 + player_y, 0);
     glTexCoord2f(0, 1); glVertex3f(0 + player_x, 100 + player_y, 0);
@@ -67,19 +87,34 @@ void MainComponent::render()
     if (movingDown) {
         if (player_y > 0)
             player_y -= speed;
+        if (player_y < getHeight() / 2) {
+            offset_y += speed;
+        }
     }
     else if (movingUp) {
         if (player_y < getHeight() - 100)
             player_y += speed;
+        if (player_y > getHeight() / 2) {
+            offset_y -= speed;
+        }
     }
     
     if (movingLeft) {
         if (player_x > 0)
             player_x -= speed;
+        
+        if (player_x < getWidth() / 2) {
+            offset_x += speed;
+        }
     }
     else if(movingRight) {
         if (player_x < getWidth() - 100)
             player_x += speed;
+        
+        if (player_x > getWidth() / 2) {
+            offset_x -= speed;
+        }
+        
     }
     
     // Add your rendering code here...
@@ -100,8 +135,6 @@ void MainComponent::resized()
 }
 
 bool MainComponent::keyPressed(const juce::KeyPress &key, juce::Component *originatingComponent) {
-    
-    Logger::writeToLog("Key pressed");
     
     if (key.getKeyCode() == KeyPress::leftKey) {
         
