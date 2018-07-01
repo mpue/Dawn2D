@@ -45,12 +45,14 @@ private:
     float offset_x = 0;
     float offset_y = -1000;
     
+    float scroll_speed = 10.0f;
     float speed = 5.0f;
     
     bool movingLeft = false;
     bool movingRight = false;
     bool movingUp = false;
     bool movingDown = false;
+
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };

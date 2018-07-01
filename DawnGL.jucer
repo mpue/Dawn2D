@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="HQ5Kz3" name="DawnGL" projectType="guiapp" jucerVersion="5.3.2">
+<JUCERPROJECT id="HQ5Kz3" name="DawnGL" projectType="guiapp" jucerVersion="5.3.1">
   <MAINGROUP id="zyBtIK" name="DawnGL">
     <GROUP id="{FA2422CC-9366-62DD-F53F-A09B8DB0F699}" name="textures">
       <FILE id="XLuzpE" name="dawn_beta_part1-3.jpg" compile="0" resource="1"

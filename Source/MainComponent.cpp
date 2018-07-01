@@ -85,34 +85,41 @@ void MainComponent::render()
     glEnd();
     
     if (movingDown) {
-        if (player_y > 0)
-            player_y -= speed;
-        if (player_y < getHeight() / 2) {
-            offset_y += speed;
+        if (player_y < getHeight() * 0.25 - 100) {
+            offset_y += scroll_speed;
+        }
+        else {
+            if (player_y > 0)
+                player_y -= speed;
         }
     }
     else if (movingUp) {
-        if (player_y < getHeight() - 100)
-            player_y += speed;
-        if (player_y > getHeight() / 2) {
-            offset_y -= speed;
+        if (player_y > getHeight() * 0.75) {
+            offset_y -= scroll_speed;
+        }
+        else {
+            if (player_y < getHeight() - 100)
+                player_y += speed;
         }
     }
     
     if (movingLeft) {
-        if (player_x > 0)
-            player_x -= speed;
-        
-        if (player_x < getWidth() / 2) {
+        if (player_x < getWidth() * 0.25 - 100) {
             offset_x += speed;
+        }
+        else {
+            if (player_x > 0)
+                player_x -= speed;
         }
     }
     else if(movingRight) {
-        if (player_x < getWidth() - 100)
-            player_x += speed;
-        
-        if (player_x > getWidth() / 2) {
+
+        if (player_x > getWidth() * 0.75) {
             offset_x -= speed;
+        }
+        else {
+            if (player_x < getWidth() - 100)
+                player_x += speed;
         }
         
     }

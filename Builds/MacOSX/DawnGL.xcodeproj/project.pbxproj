@@ -161,7 +161,6 @@
 					2FB093E004571B249C639A4A, ); name = Source; sourceTree = "<group>"; };
 		7E27AF529C9C2E0DBE1F5B1E = {isa = XCBuildConfiguration; buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
-				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
@@ -193,7 +192,6 @@
 				USE_HEADERMAP = NO; }; name = Debug; };
 		9B674CF592F20C3BEEED8192 = {isa = XCBuildConfiguration; buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
-				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
@@ -344,7 +342,7 @@
 					52C5CCEE24F57C6014F86814,
 					E56A3B670DE16CE174163507,
 					EF7303CAF9DBAEC2004859F7, ); buildRules = ( ); dependencies = (  ); name = "DawnGL - App"; productName = DawnGL; productReference = 3DAF159441966CC74D431D62; productType = "com.apple.product-type.application"; };
-		C3C8650CCBAB7F2E06B54AB6 = {isa = PBXProject; buildConfigurationList = BF7CA47F2C4A19A4107B85AA; attributes = { LastUpgradeCheck = 0930; ORGANIZATIONNAME = ""; TargetAttributes = { 0511DB4D25F876064D4C165F = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; }; }; }; }; compatibilityVersion = "Xcode 3.2"; hasScannedForEncodings = 0; mainGroup = A7588188CB68489BFA94F454; projectDirPath = ""; projectRoot = ""; targets = (0511DB4D25F876064D4C165F); };
+		C3C8650CCBAB7F2E06B54AB6 = {isa = PBXProject; buildConfigurationList = BF7CA47F2C4A19A4107B85AA; attributes = { LastUpgradeCheck = 0830; ORGANIZATIONNAME = ""; TargetAttributes = { 0511DB4D25F876064D4C165F = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; }; }; }; }; compatibilityVersion = "Xcode 3.2"; hasScannedForEncodings = 0; mainGroup = A7588188CB68489BFA94F454; projectDirPath = ""; projectRoot = ""; targets = (0511DB4D25F876064D4C165F); };
 	};
 	rootObject = C3C8650CCBAB7F2E06B54AB6;
 }
